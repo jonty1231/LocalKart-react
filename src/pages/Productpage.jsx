@@ -31,7 +31,7 @@ if(state.isLoading){
 
   return (  
     <div className=" px-[1.4rem]  md:px-[5rem] mt-28 md:mt-20 flex flex-col lg:flex-row gap-10 items-center relative">
-      <div className="lg:w-[150rem] relative">
+      <div className="  lg:w-[150rem] relative">
       <div className="flex gap-2 lg:fixed  top-24">
         <div>
           {images && images.map((info,index) => {
@@ -40,13 +40,13 @@ if(state.isLoading){
                 className="border-2  p-1 rounded-full w-[50px]  my-3 cursor-pointer"
                 onClick={() => setmainimg(info)}
               >
-                <img src={info} alt=""  className=""/>
+                <img src={info} alt=""  className=" "/>
               </div>
             );
           })}
         </div><div>
-        <div className=" shadow-gray-400 shadow-sm  relative w-[350px]">
-      <img src={mainimg?mainimg:thumbnail} alt="" className="  h-[350px] imgfil" /> 
+        <div className=" shadow-gray-400 shadow-sm  relative md:w-[350px]">
+      <img src={mainimg?mainimg:thumbnail} alt="" className="   md:h-[350px] imgfil" /> 
       <i className="fa-regular fa-heart absolute top-3 right-3 text-lg"></i>
 
 
