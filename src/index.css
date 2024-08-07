@@ -1,0 +1,91 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Gilda+Display&family=Kalnia+Glaze:wght@100..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.gilda-display-regular {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+.hovernav::before{
+    content:  attr(data-value) ;
+   
+    position: absolute;
+    font-family: "Arsenal SC", sans-serif;
+    opacity: 1;
+    width: 190%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+
+    transition: all 0.3s;
+    }
+    .hovernav::after{
+
+        content:  attr(data-value) ;
+       
+        position: absolute;
+        font-family: "Arsenal SC", sans-serif;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+
+        transition: all 0.3s;
+        }
+
+    .hovernavparrent:hover    .hovernav::after{
+            top:-100%;
+        }
+
+
+    
+        .hovernavparrent:hover    .hovernav::before{
+            top:0%;
+        }
+
+        .loginbutton{
+            border: 2px solid #000;
+            color: black;
+            padding: 4px 25px;
+            font-size: 25px;
+            position: relative;
+        }
+        
+
+       
+        .rotatez{
+            transform: rotateY(180deg);
+        }
+        .font2{
+            font-family: "Noto Serif", serif;
+        }
+   .herodiv::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #00000049;
+   } 
+      
+
+
+.imgfil{
+
+    aspect-ratio: 2/2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+}
