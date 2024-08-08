@@ -6,6 +6,7 @@ import Loder from "../components/Loder";
 
 import Categorieslist from "../components/Categorieslist";
 import { addcart} from "../store/Localstoragedata";
+import { titleapi } from "../store/title.id_slice";
 
 const Productpage = () => {
   const param = useParams().id;
@@ -13,16 +14,24 @@ const Productpage = () => {
 const [showreview,setshowreview]=useState(false)
 
   const state = useSelector((state) => state.singleproduct);
-
+const allstate=useSelector((state)=>state.titles)
   const { images,title,description,thumbnail,price,discountPercentage,rating,minimumOrderQuantity,shippingInformation,warrantyInformation,returnPolicy,reviews,category} = state.data;
   const [mainimg, setmainimg] = useState("");
 
   useEffect(() => {
-    dispatch(singleproductapi(param));
+          dispatch(titleapi())
+          const newtitle=param.split("-").join(" ")
+          const apihandel=async()=>{
+            const datainfo= await allstate.data.products.filter((info)=>info.title==newtitle)
+            console.log(datainfo[0])
+                   dispatch(singleproductapi(datainfo[0].id));
+          }
+          apihandel()
+    // 
  
   }, [param]);
 
-
+// console.log(allstate.data.products)
 if(state.isLoading){
   return(
    <Loder />

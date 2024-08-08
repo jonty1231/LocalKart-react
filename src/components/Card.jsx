@@ -1,9 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Card = ({info}) => {
+  const navigation=useNavigate()
+const handelNavigaion=(info)=>{
+navigation(`/product/${info}`)
+}
+
+  // console.log()
   return (
-    <Link onClick={""} to={`/product/${info.id}`} className="   flex flex-col  relative border-2 rounded-md  shadow-gray-500 duration-300 mt-5   card cursor-grab active:cursor-grabbing">
+    <div onClick={()=>handelNavigaion(info.title.split(' ').join("-"))}  className="   flex flex-col  relative border-2 rounded-md  shadow-gray-500 duration-300 mt-5   card cursor-grab active:cursor-grabbing">
                   <p
                     className={`absolute top-1 right-5 z-10 text-sm ${
                       info.availabilityStatus == "In Stock"
@@ -38,7 +44,7 @@ const Card = ({info}) => {
 
                   
                   </div>
-                </Link>
+                </div>
   )
 }
 

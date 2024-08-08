@@ -35,7 +35,7 @@ const catogriesdata=[
     },
     1024: {
       slidesPerView: 7,
-      spaceBetween: 50,
+      spaceBetween: 0,
     },
   }}
   loop={true}

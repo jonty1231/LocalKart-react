@@ -21,7 +21,7 @@
     position: absolute;
     font-family: "Arsenal SC", sans-serif;
     opacity: 1;
-    width: 190%;
+    width: 100%;
     height: 100%;
     top: 100%;
     left: 0;
@@ -68,6 +68,11 @@
         .rotatez{
             transform: rotateY(180deg);
         }
+.font3{
+    font-family: "Arsenal SC", sans-serif;
+
+}
+
         .font2{
             font-family: "Noto Serif", serif;
         }
@@ -88,4 +93,12 @@
     aspect-ratio: 2/2;
     object-fit: contain;
     mix-blend-mode: color-burn;
+}
+
+.morf{
+    background: rgba(255, 113, 113, 0.5);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 13.5px );
+-webkit-backdrop-filter: blur( 13.5px );
+
 }

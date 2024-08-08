@@ -64,16 +64,16 @@ const Header = () => {
               <span className="opacity-0">Carts</span>
             </p>
           </Link>
-          <div className=" hovernavparrent items-center gap-2 text-md hidden md:flex ">
+          <Link  to="/saller" className=" hovernavparrent items-center gap-2 text-md hidden md:flex ">
             <i className="fa-solid fa-store"></i>
             <p
               data-value="Become a Seller"
               className=" relative hovernav overflow-hidden hidden lg:block h-[25px] "
             >
           
-              <span className="opacity-0 uppercase"> Become a Seller </span>
+              <span className="opacity-0 uppercase font2"> Become a Seller </span>
             </p>
-          </div>
+          </Link>
           <div className="hidden md:block  ">
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>
