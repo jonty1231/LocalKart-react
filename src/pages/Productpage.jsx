@@ -8,6 +8,7 @@ import Categorieslist from "../components/Categorieslist";
 import { addcart} from "../store/Localstoragedata";
 import { titleapi } from "../store/title.id_slice";
 
+
 const Productpage = () => {
   const param = useParams().id;
   const dispatch = useDispatch();
@@ -19,25 +20,30 @@ const allstate=useSelector((state)=>state.titles)
   const [mainimg, setmainimg] = useState("");
 
   useEffect(() => {
-          dispatch(titleapi())
-          const newtitle=param.split("-").join(" ")
-          const apihandel=async()=>{
-            const datainfo= await allstate.data.products.filter((info)=>info.title==newtitle)
-            console.log(datainfo[0])
-                   dispatch(singleproductapi(datainfo[0].id));
-          }
-          apihandel()
-    // 
+        
+    dispatch(titleapi())
+          
+    
  
-  }, [param]);
-
+  }, [ ]);
+  
 // console.log(allstate.data.products)
+
+useEffect(()=>{
+  const apihandel=()=>{
+            
+    const newtitle=param.split("-").join(" ")
+    const datainfo= allstate.data.products && allstate.data.products.filter((info)=>info.title==newtitle)
+  
+         datainfo &&  dispatch(singleproductapi(datainfo[0].id));
+  }
+  apihandel()
+},[param,allstate])
 if(state.isLoading){
   return(
    <Loder />
   )
 }
-
   return (  
     <div className=" px-[1.4rem]  md:px-[5rem] mt-28 md:mt-20 flex flex-col lg:flex-row gap-10 items-center relative">
       <div className="  lg:w-[150rem] relative">
