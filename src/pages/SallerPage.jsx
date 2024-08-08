@@ -16,7 +16,7 @@ const SallerPage = () => {
   return (
     <div className='min-h-screen flex justify-center items-center  bg-[url("https://png.pngtree.com/thumb_back/fw800/background/20240103/pngtree-hexagonal-textured-pattern-background-image_13919823.png")] bg-cover bg-center  bg-fixed'>
       <form onSubmit={()=>handelsignup()}
-        className={`md:mt-16 morf border-2 w-5/6 md:w-4/6 lg:w-3/6 p-5 ${
+        className={`md:mt-16 morf border-2 w-5/6 md:w-4/6 lg:w-3/6 xl:w-2/6 p-5 ${
           loginstate ? "scale-0 rotate-180" : "scale-100"
         } origin-center duration-500`}
       >
@@ -142,7 +142,7 @@ const SallerPage = () => {
       </form>
 
       <form onSubmit={()=>handelsignup()}
-        className={` morf absolute top-1/3 border-2 w-5/6 md:w-4/6 lg:w-3/6 p-5  ${
+        className={` morf absolute top-1/3 border-2 w-5/6 md:w-4/6 lg:w-3/6 xl:w-2/6 p-5  ${
           !loginstate ? "scale-0 -rotate-180" : "scale-100"
         } origin-center duration-500`}
       >

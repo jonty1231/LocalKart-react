@@ -25,16 +25,21 @@ let isvalid =true
 }
 
 
+
 export const getcart=()=>{
     let data= JSON.parse(localStorage.getItem("items"))
     return data;
 }
+
+
 export const Deletitem=(id)=>{
     let data=JSON.parse(localStorage.getItem("items"))
  let newdata=   data.filter((info)=>info.data.id !=id)
 
     localStorage.setItem("items",JSON.stringify(newdata))
 }
+
+
 export const itemscountad=(id)=>{
     let data=JSON.parse(localStorage.getItem("items"))
     
@@ -42,6 +47,9 @@ export const itemscountad=(id)=>{
 
     localStorage.setItem("items",JSON.stringify(newdata))
 }
+
+
+
 export const itemscountsub=(id)=>{
     let data=JSON.parse(localStorage.getItem("items"))
     

@@ -101,7 +101,7 @@ const [showNav,setshowNav]=useState(false)
     </div>
 
   <Outlet />
-  <Footer />
+  
     </div>
   );
 };

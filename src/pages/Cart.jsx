@@ -22,7 +22,7 @@ let num;
 },[effect])
 
 
-if(Array(data)[0] && Array(data)[0].length==0){
+if(data==null || data.length==0){
   return(
     <div className='h-screen flex items-center justify-center'>
   <div>
