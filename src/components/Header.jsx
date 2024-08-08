@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
 
 
 const Header = () => {
+const [showNav,setshowNav]=useState(false)
+
   return (<div>
-    <div className="shadow-md py-1 fixed  w-full top-0 z-50 bg-white ">
+    <div className="shadow-md py-1 fixed  w-full top-0 z-50 bg-white  ">
       <div className=" flex    px-4 md:px-10 lg:px-[8rem] justify-between items-center gap-10 lg:gap-16">
         <Link to="/" className="flex gap-4 items-center">
-          <i className="fa-solid fa-bars text-2xl  md:hidden "></i>
+          <i className={`fa-solid  ${showNav?"fa-xmark":"fa-bars"} text-2xl  md:hidden `} onClick={()=>setshowNav(!showNav)}></i>
+
           <img
             src="/logo.svg"
             alt=""
@@ -93,6 +96,7 @@ const Header = () => {
           />
         </label>
       </div>
+      <Nav_screen   classs={showNav}/>
     </div>
 
   <Outlet />
@@ -100,5 +104,22 @@ const Header = () => {
     </div>
   );
 };
+
+const Nav_screen=( {classs})=>{
+  return( 
+    <div className={`h-screen w-full flex flex-col items-center justify-center gap-10 text-white bg-[#000000e8] absolute top-20 ${classs?"left-0":"-left-full"}  text-2xl font2 duration-300`}>
+  <Link to="/">
+  Home
+  </Link>
+  <Link to="/cart">
+  Cart</Link>
+  <Link to="/saller">Saller</Link>
+  <Link to="/login">
+  Login
+  </Link>
+    </div>
+  )
+}
+
 
 export default Header;
