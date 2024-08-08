@@ -48,11 +48,11 @@ if(state.isLoading){
     <div className=" px-[1.4rem]  md:px-[5rem] mt-28 md:mt-20 flex flex-col lg:flex-row gap-10 items-center relative">
       <div className="  lg:w-[150rem] relative">
       <div className="flex flex-col md:flex-row gap-2 lg:fixed  top-24">
-        <div>
+        <div className="flex flex-row md:flex-col gap-3">
           {images && images.map((info,index) => {
             return (
               <div key={index}
-                className="border-2  p-1 rounded-full w-[50px] flex flex-row md:flex-col  my-3 cursor-pointer"
+                className="border-2  p-1 rounded-full w-[50px]   my-3 cursor-pointer"
                 onClick={() => setmainimg(info)}
               >
                 <img src={info} alt=""  className=" "/>
