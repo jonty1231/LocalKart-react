@@ -52,7 +52,7 @@ if(state.isLoading){
           {images && images.map((info,index) => {
             return (
               <div key={index}
-                className="border-2  p-1 rounded-full w-[50px]  my-3 cursor-pointer"
+                className="border-2  p-1 rounded-full w-[50px] flex flex-row md:flex-col  my-3 cursor-pointer"
                 onClick={() => setmainimg(info)}
               >
                 <img src={info} alt=""  className=" "/>
