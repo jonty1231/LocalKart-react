@@ -17,7 +17,7 @@ const [showreview,setshowreview]=useState(false)
   const state = useSelector((state) => state.singleproduct);
 const allstate=useSelector((state)=>state.titles)
   const { images,title,description,thumbnail,price,discountPercentage,rating,minimumOrderQuantity,shippingInformation,warrantyInformation,returnPolicy,reviews,category} = state.data;
-  const [mainimg, setmainimg] = useState("");
+  const [mainimg, setmainimg] = useState(0);
 
   useEffect(() => {
         
@@ -53,7 +53,7 @@ if(state.isLoading){
             return (
               <div key={index}
                 className="border-2  p-1 rounded-full w-[50px]   my-3 cursor-pointer"
-                onClick={() => setmainimg(info)}
+                onClick={() => setmainimg(index)}
               >
                 <img src={info} alt=""  className=" "/>
               </div>
@@ -61,7 +61,7 @@ if(state.isLoading){
           })}
         </div><div>
         <div className=" shadow-gray-400 shadow-sm  relative md:w-[350px]">
-      <img src={mainimg?mainimg:thumbnail} alt="" className="   md:h-[350px] imgfil" /> 
+      <img src={images && images[mainimg]} alt="" className="   md:h-[350px] imgfil" /> 
       <i className="fa-regular fa-heart absolute top-3 right-3 text-lg"></i>
 
 
