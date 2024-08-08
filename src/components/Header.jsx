@@ -9,8 +9,9 @@ const [showNav,setshowNav]=useState(false)
   return (<div>
     <div className="shadow-md py-1 fixed  w-full top-0 z-50 bg-white  ">
       <div className=" flex    px-4 md:px-10 lg:px-[8rem] justify-between items-center gap-10 lg:gap-16">
+      <i className={`fa-solid  ${showNav?"fa-xmark":"fa-bars"} text-2xl  md:hidden `} onClick={()=>setshowNav(!showNav)}></i>
         <Link to="/" className="flex gap-4 items-center">
-          <i className={`fa-solid  ${showNav?"fa-xmark":"fa-bars"} text-2xl  md:hidden `} onClick={()=>setshowNav(!showNav)}></i>
+        
 
           <img
             src="/logo.svg"
@@ -96,7 +97,7 @@ const [showNav,setshowNav]=useState(false)
           />
         </label>
       </div>
-      <Nav_screen   classs={showNav}/>
+      <Nav_screen   classs={showNav} classs2={setshowNav}/>
     </div>
 
   <Outlet />
@@ -105,16 +106,16 @@ const [showNav,setshowNav]=useState(false)
   );
 };
 
-const Nav_screen=( {classs})=>{
+const Nav_screen=( {classs,classs2})=>{
   return( 
     <div className={`h-screen w-full flex flex-col items-center justify-center gap-10 text-white bg-[#000000e8] absolute top-20 ${classs?"left-0":"-left-full"}  text-2xl font2 duration-300`}>
-  <Link to="/">
+  <Link to="/" onClick={()=>classs2(false)}>
   Home
   </Link>
-  <Link to="/cart">
+  <Link to="/cart" onClick={()=>classs2(false)}>
   Cart</Link>
-  <Link to="/saller">Saller</Link>
-  <Link to="/login">
+  <Link to="/saller" onClick={()=>classs2(false)}>Saller</Link>
+  <Link to="/login" onClick={()=>classs2(false)}>
   Login
   </Link>
     </div>
