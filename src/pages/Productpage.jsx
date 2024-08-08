@@ -47,7 +47,7 @@ if(state.isLoading){
   return (  
     <div className=" px-[1.4rem]  md:px-[5rem] mt-28 md:mt-20 flex flex-col lg:flex-row gap-10 items-center relative">
       <div className="  lg:w-[150rem] relative">
-      <div className="flex gap-2 lg:fixed  top-24">
+      <div className="flex flex-col md:flex-row gap-2 lg:fixed  top-24">
         <div>
           {images && images.map((info,index) => {
             return (
