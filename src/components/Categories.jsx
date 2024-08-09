@@ -48,7 +48,7 @@ const catogriesdata=[
 >
 {catogriesdata.map((info,index)=>{
   return(<SwiperSlide key={index}> 
-    <div key={index} className="  w-[2.5rem] md:w-[4.5rem] lg:w-[4.5rem] h-[6rem] md:h-[8rem]">
+    <div key={index} className="  w-[3rem] md:w-[4.5rem] lg:w-[4.5rem] h-[6rem] md:h-[8rem]">
 <img src={info.img} alt=""  className=" lg:w-full h-2/5 md:h-3/5 rounded-full "/>
 <p className=" mt-3 text-center lg:font2 text-[0.5rem] md:text-[0.8rem]">{info.categories}</p>
     </div>

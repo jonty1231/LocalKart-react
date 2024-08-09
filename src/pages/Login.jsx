@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import {Autoplay } from 'swiper/modules';
-import axios from 'axios';
+
 import { Link } from 'react-router-dom';
 
 
@@ -59,8 +59,8 @@ const handelMouce=()=>{
 
      <div className='  morf w-5/6 md:w-1/2 xl:w-1/3 flex flex-col justify-center  p-3  ' >
        <div className=''>
-       <div className='flex justify-center  w-4/5 my-10'>       <img src="/logo.svg" alt="" className={`duration-200  `} />
-       </div>
+       <Link to="/" className='flex justify-center  w-4/5 my-10'>       <img src="/logo.svg" alt="" className={`duration-200  `} />
+       </Link>
 
 <div className='flex flex-col gap-10 '>
        <div className='flex flex-col gap-2 '>
