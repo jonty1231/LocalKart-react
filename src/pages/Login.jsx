@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () => {
+
   const catogriesdata=[
   
    
@@ -27,12 +28,14 @@ const Login = () => {
 
  
 const [showpassword,setshowpassword]=useState(false)
+const handelMouce=()=>{
 
+}
 
 
 
   return (
-    <div className=' h-screen flex overflow-hidden gap-5 relative justify-center items-center'>
+    <div className=' h-screen flex overflow-hidden gap-5 relative justify-center items-center bg-green-600 md:bg-transparent '>
      <div className=' hidden md:block w-full absolute top-0 h-full -z-10 left-0 '>
 
       <Swiper
@@ -46,7 +49,7 @@ const [showpassword,setshowpassword]=useState(false)
         modules={[Autoplay]}
         className="mySwiper"
       >
-        {catogriesdata.map((data,index)=> <SwiperSlide className=''><img src={data.img} alt="" className=' w-full  ' /></SwiperSlide>)}
+        {catogriesdata.map((data,index)=> <SwiperSlide  key={index} className=''><img src={data.img} alt="" className=' w-full  ' /></SwiperSlide>)}
        
        
       
@@ -54,9 +57,9 @@ const [showpassword,setshowpassword]=useState(false)
 
      </div>
 
-     <div className=' morf md:w-1/2 xl:w-1/3 flex flex-col justify-center  p-3 ' >
+     <div className='  morf w-5/6 md:w-1/2 xl:w-1/3 flex flex-col justify-center  p-3  ' >
        <div className=''>
-       <div className='flex  w-full my-10'>       <img src="/logo.svg" alt="" className='duration-200  relative  m-auto ' />
+       <div className='flex justify-center  w-4/5 my-10'>       <img src="/logo.svg" alt="" className={`duration-200  `} />
        </div>
 
 <div className='flex flex-col gap-10 '>

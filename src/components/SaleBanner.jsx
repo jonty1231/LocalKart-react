@@ -29,7 +29,7 @@ spaceBetween={0}
    grabCursor={true}
    modules={[Autoplay]}
     className="mySwiper">
-    { img&& img.map((data,index)=>{return <SwiperSlide key={index}> <div className=''><img src={data} alt=""  className='   h-[5.6rem] md:h-full w-full'/> </div> </SwiperSlide>})}
+    { img&& img.map((data,index)=>{return <SwiperSlide key={index}> <div className=''><img src={data} alt=""  className='   h-[8rem] md:h-full w-full'/> </div> </SwiperSlide>})}
         
        
       </Swiper>
