@@ -26,19 +26,24 @@ const catogriesdata=[
    <div className="flex justify-between mt-28 md:mt-14 pt-5 gap-3  md:mx-4 my-3 rounded-md lg:gap-16 px-8 bg-[#ece9e9] ">
 <Swiper
   slidesPerView={5}
+  spaceBetween={40}
   breakpoints={{
     640: {
       slidesPerView: 5,
-      spaceBetween: 20,
+      spaceBetween: 40,
     },
     768: {
-      slidesPerView: 5,
-      spaceBetween: 40,
+      slidesPerView: 6,
+      spaceBetween: 50,
     },
     1024: {
       slidesPerView: 8,
-      spaceBetween:100,
+      spaceBetween:50,
     },
+    1220:{
+      slidesPerView: 8,
+      spaceBetween:100,
+    }
   }}
   loop={true}
   // pagination={{
