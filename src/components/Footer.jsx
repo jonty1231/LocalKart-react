@@ -24,10 +24,15 @@ const newdata=[{name:"ABOUT",info:["Contact Us","About Us","Careers","Localkart 
        
 
          </div>
-  <div >
-    <p className='text-sm'><i className="fa-solid fa-store text-orange-400 mx-3 " ></i> Become a Seller</p>
-
-
+  <div  className='p-3 border-t-2 hidden md:flex justify-around ' >
+    <p className='text-sm'><i className="fa-solid fa-store text-orange-400 mx-2 " ></i> Become a Seller</p>
+    <p className='text-sm'><i className="fa-solid fa-star text-orange-400 mx-2 " ></i> Adverise</p>
+    <p className='text-sm'><i className="fa-solid fa-gift text-orange-400 mx-2 " ></i> Gift Cards</p>
+    <p className='text-sm'><i className="fa-regular fa-circle-question text-orange-400 mx-2 " ></i> Help Center</p>
+    <p className='text-sm'> &copy; 2024-∞ Localkart.com</p>
+<div >
+<img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg" alt="Payment methods" />
+</div>
 
   </div >
 
