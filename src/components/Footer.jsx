@@ -8,7 +8,7 @@ const newdata=[{name:"ABOUT",info:["Contact Us","About Us","Careers","Localkart 
 
   return (
     <div className='bg-[#181717] text-white px-4'>
-         <div className='grid  grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-2 p-4'>
+         <div className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 p-4'>
                {
                 newdata.map((elm)=>{
                   return(

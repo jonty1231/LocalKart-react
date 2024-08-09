@@ -64,13 +64,13 @@ if(state.isLoading){
                 className="border-2  p-1 rounded-full w-[50px]   my-3 cursor-pointer"
                 onClick={() => setmainimg(index)}
               >
-                <img src={ info} alt=""  className=" "/>
+                <img src={ info} alt=""  className=" " loading="lazy"/>
               </div>
             );
           })}
         </div><div>
         <div className={` shadow-gray-400 shadow-sm  relative  w-[350px] ${skelotenimg?"skel":""}  `}>
-      <img src={ images && images[mainimg] } alt="" className={` w-full md:h-[350px] `} /> 
+      <img src={ images && images[mainimg] } alt="" className={` w-full md:h-[350px] `}  loading="lazy"/> 
       <i className="fa-regular fa-heart absolute top-3 right-3 text-lg"></i>
 
 
