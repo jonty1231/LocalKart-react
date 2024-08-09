@@ -7,6 +7,7 @@ import Loder from "../components/Loder";
 import Categorieslist from "../components/Categorieslist";
 import { addcart} from "../store/Localstoragedata";
 import { titleapi } from "../store/title.id_slice";
+import Footer from "../components/Footer";
 
 
 const Productpage = () => {
@@ -53,7 +54,7 @@ if(state.isLoading){
    <Loder />
   )
 }
-  return (  
+  return (  <>
     <div className=" px-[1.4rem]  md:px-[5rem] mt-28 md:mt-20 flex flex-col lg:flex-row gap-10 items-center relative">
       <div className="  lg:w-[150rem] relative">
       <div className="flex flex-col md:flex-row gap-2 lg:fixed  top-24">
@@ -118,9 +119,11 @@ if(state.isLoading){
       </div>
 
 
-
+      
 
     </div>
+   
+    </>
   );
 };
 

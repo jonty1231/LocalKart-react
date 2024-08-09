@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Deletitem, getcart, itemscountad ,itemscountsub} from '../store/Localstoragedata'
+import Footer from '../components/Footer'
 
 
 const Cart = () => {
@@ -23,7 +24,7 @@ let num;
 
 
 if(data==null || data.length==0){
-  return(
+  return(<>
     <div className='h-screen flex items-center justify-center'>
   <div>
     <img src="https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="" className='w-2/6 m-auto' />
@@ -32,7 +33,8 @@ if(data==null || data.length==0){
 
   </div>
     </div>
-  )
+    <Footer />
+    </> )
 }
 
   
@@ -42,7 +44,7 @@ num=data &&  data.map((item)=>{
   }).reduce((acc,current)=>acc+current)
 
  
-  return (
+  return (<>
     <div className='  px-[2rem] lg:px-[5rem] mt-28 md:mt-20 flex  flex-col lg:flex-row gap-10'>
 <div className=' lg:w-4/5'>
 
@@ -69,6 +71,7 @@ num=data &&  data.map((item)=>{
    <span onClick={()=>{Deletitem( info.data.id),seteffect(!effect)}}><i className="fa-solid fa-delete-left"></i></span>
 
     </div>
+
    </div>
 
     )
@@ -92,6 +95,8 @@ num=data &&  data.map((item)=>{
 </div>
 
     </div>
+    <Footer />
+     </>
   )
 }
 
