@@ -31,7 +31,7 @@ const allstate=useSelector((state)=>state.titles)
           
     
  
-  }, [ ]);
+  }, [ param]);
   
 // console.log(allstate.data.products)
 
