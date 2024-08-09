@@ -18,10 +18,12 @@ const catogriesdata=[
 {categories:"SUNGLASSES",img:"https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6d070031918307.5666c73cbbf3a.jpg"},
 {categories:"TABLETS",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3xlGhxQFDIFXqg7mnyprknF-Jg1o4koU7HA&s"},
 {categories:"MOTORCYCLE",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAxoyQI6_NadGWQSKcFXq8NgWhcms96p0SKw&s"},
-{categories:"TOPS",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCT-Z-yFIpHRO37UKJPmWq1539xy3T7mzmA&s"}]
+{categories:"TOPS",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCT-Z-yFIpHRO37UKJPmWq1539xy3T7mzmA&s"},{categories:"TABLETS",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3xlGhxQFDIFXqg7mnyprknF-Jg1o4koU7HA&s"},
+{categories:"MOTORCYCLE",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAxoyQI6_NadGWQSKcFXq8NgWhcms96p0SKw&s"},
+{categories:"TOPS",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCT-Z-yFIpHRO37UKJPmWq1539xy3T7mzmA&s"},]
 
   return (
-   <div className="flex mt-28 md:mt-20 justify-center items-center gap-3  lg:gap-16 px-[0.7rem] md:px-[2rem] lg:px-[5rem]">
+   <div className="flex justify-between mt-28 md:mt-14 pt-5 gap-3  md:mx-4 my-3 rounded-md lg:gap-16 px-8 bg-[#ece9e9] ">
 <Swiper
   slidesPerView={5}
   breakpoints={{
@@ -34,8 +36,8 @@ const catogriesdata=[
       spaceBetween: 40,
     },
     1024: {
-      slidesPerView: 7,
-      spaceBetween: 0,
+      slidesPerView: 8,
+      spaceBetween:100,
     },
   }}
   loop={true}
@@ -44,11 +46,11 @@ const catogriesdata=[
   // }}
   // navigation={true}
   // modules={[Pagination, Navigation]}
-  className="mySwiper"
+  className="mySwiper flex justify-center items-center"
 >
 {catogriesdata.map((info,index)=>{
   return(<SwiperSlide key={index}> 
-    <div key={index} className="  w-[3rem] md:w-[4.5rem] lg:w-[4.5rem] h-[6rem] md:h-[8rem]">
+    <div key={index} className="   h-[6rem] md:h-[7rem]">
 <img src={info.img} alt=""  className=" lg:w-full h-2/5 md:h-3/5 rounded-full "/>
 <p className=" mt-3 text-center lg:font2 text-[0.5rem] md:text-[0.8rem]">{info.categories}</p>
     </div>

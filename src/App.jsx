@@ -7,7 +7,8 @@ import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
 import Cart from "./pages/Cart";
 import SallerPage from "./pages/SallerPage";
-
+import { ToastContainer} from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   return (
@@ -28,6 +29,11 @@ function App() {
   </Routes>
 
   </BrowserRouter>
+<ToastContainer 
+position="top-center"
+autoClose={1000}/>
+
+
   </>
   )
 }

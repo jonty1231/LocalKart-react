@@ -204,3 +204,4 @@ const SallerPage = () => {
 };
 
 export default SallerPage;
+ 

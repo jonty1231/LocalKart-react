@@ -45,7 +45,7 @@ num=data &&  data.map((item)=>{
 
  
   return (<>
-    <div className='  px-[2rem] lg:px-[5rem] mt-28 md:mt-20 flex  flex-col lg:flex-row gap-10'>
+    <div className=' md:min-h-screen  px-[2rem] lg:px-[5rem] mt-28 md:mt-20 flex  flex-col lg:flex-row gap-10'>
 <div className=' lg:w-4/5'>
 
 { data && data.map((info,index)=>{

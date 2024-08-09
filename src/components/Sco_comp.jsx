@@ -14,11 +14,11 @@ dispatch(titleapi())
   return (
     <div>
  <div className=' bg-[#54555017] p-2 my-4'>
-    { state.data.products && state.data.products.map((items)=>{
+    { state.data.products && state.data.products.map((items,index)=>{
         return(
-           <>
-            <Link className='text-sm text-gray-600'>{items.title}</Link> <span className='mx-1 text-lg'> | </span>
-            </>
+           <span key={index}>
+            <Link key={index} className='text-sm text-gray-600'>{items.title}</Link> <span className='mx-1 text-lg'> | </span>
+            </span>
         )
     }) }
  </div>

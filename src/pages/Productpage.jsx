@@ -7,7 +7,8 @@ import Loder from "../components/Loder";
 import Categorieslist from "../components/Categorieslist";
 import { addcart} from "../store/Localstoragedata";
 import { titleapi } from "../store/title.id_slice";
-import Footer from "../components/Footer";
+import { toast } from "react-toastify";
+
 
 
 const Productpage = () => {
@@ -47,7 +48,10 @@ useEffect(()=>{
   apihandel()
 },[param,allstate])
 
-
+const cartHandel=(data)=>{
+  addcart(data)
+  toast.success("Add to Cart")
+}
 
 if(state.isLoading){
   return(
@@ -78,7 +82,7 @@ if(state.isLoading){
   </div>
       <div className="flex text-center justify-between mt-4  gap-3">
 <button className="p-2 px-5 bg-green-700 text-white font-bold rounded-md  w-3/6 " >Buy Now</button>
-<button className="p-2 px-5 bg-red-700 text-white font-bold  rounded-md w-3/6" onClick={()=>addcart(state.data)}>Add to Cart</button>
+<button className="p-2 px-5 bg-red-700 text-white font-bold  rounded-md w-3/6" onClick={()=>cartHandel(state.data)}>Add to Cart</button>
 </div>
         </div>
         

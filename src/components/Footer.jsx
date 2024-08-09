@@ -10,9 +10,9 @@ const newdata=[{name:"ABOUT",info:["Contact Us","About Us","Careers","Localkart 
     <div className='bg-[#181717] text-white px-4'>
          <div className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 p-4'>
                {
-                newdata.map((elm)=>{
+                newdata.map((elm,index)=>{
                   return(
-                    <div>
+                    <div key = {index}>
                 <p className='text-sm my-3 text-gray-600'> {elm.name}</p>
                 <div>
                  {elm.info.map((newelm)=> <p className='text-sm font-bold hover:underline cursor-pointer '> {newelm}</p>)} 

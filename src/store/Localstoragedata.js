@@ -57,3 +57,35 @@ export const itemscountsub=(id)=>{
 
     localStorage.setItem("items",JSON.stringify(newdata))
 }
+
+export const recentitems=(data)=>{
+let prevedata=localStorage.getItem("prevData");
+prevedata=prevedata?JSON.parse(prevedata):[ ];
+ 
+let verifydata=true;
+prevedata.forEach((items)=>{
+    if(items.id==data.id){
+        verifydata=false
+       
+    }
+})
+if(verifydata){
+    prevedata.push(data)
+}
+
+localStorage.setItem("prevData",JSON.stringify(prevedata))
+}
+
+
+
+export const recentwatch=()=>{
+    let data=JSON.parse(localStorage.getItem("prevData"))
+    return data
+}
+export const deletwatch=( )=>{
+   
+
+ 
+    localStorage.setItem("prevData",JSON.stringify([]))
+
+}

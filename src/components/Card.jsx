@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
+import { recentitems } from '../store/Localstoragedata'
 
-const Card = ({info}) => {
+const Card = ({info,}) => {
 const [skelotenimg,setseloctionimg]=useState("./loder.png")
 
   const navigation=useNavigate()
-const handelNavigaion=(info)=>{
+const handelNavigaion=(info,data)=>{
+  recentitems(data)
 navigation(`/product/${info}`)
+
+
+
+
 }
 
 useEffect(()=>{
@@ -16,8 +22,8 @@ setTimeout(() => {
 
 },[ ])
  
-  return (
-    <div onClick={()=>handelNavigaion(info.title.split(' ').join("-"))}  className="   flex flex-col  relative border-2 rounded-md  shadow-gray-500 duration-300 mt-5   card cursor-grab active:cursor-grabbing">
+  return (<>
+    <div onClick={()=>handelNavigaion(info.title.split(' ').join("-"),info)}  className="   flex flex-col  relative border-2 rounded-md  shadow-gray-500 duration-300 mt-5   card cursor-grab active:cursor-grabbing  ">
                   <p
                     className={`absolute top-1 right-1 z-10  text-[10px] md:text-sm ${
                       info.availabilityStatus == "In Stock"
@@ -25,9 +31,11 @@ setTimeout(() => {
                         : "text-red-600"
                     }   `}
                   >
+           
+
                     {info.availabilityStatus}
                   </p>
-
+             
                   <div className={`h-[9rem] flex justify-center  `}>
                     <img
                       src={ skelotenimg ||  info.thumbnail}
@@ -52,8 +60,10 @@ setTimeout(() => {
 
                   
                   </div>
+                  
                 </div>
-  )
+              
+                </>)
 }
 
 export default Card
