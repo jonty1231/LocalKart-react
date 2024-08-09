@@ -11,7 +11,7 @@ setwatched(recentwatch())
 
   return ( <>
 {watched && watched.length >0 &&
-    <div className='lg:px-[2rem] '>
+    <div className='px-6 md:px-10 lg:px-[2rem] '>
   <p className='text-3xl font-bold font2'>Recent Watched</p>
         <div className='grid  grid-cols-2  lg:grid-cols-5 gap-5'>
 
