@@ -1,13 +1,21 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
 
 const Card = ({info}) => {
+const [skelotenimg,setseloctionimg]=useState("./loder.png")
+
   const navigation=useNavigate()
 const handelNavigaion=(info)=>{
 navigation(`/product/${info}`)
 }
 
-  // console.log()
+useEffect(()=>{
+setTimeout(() => {
+  setseloctionimg("")
+}, 500);
+
+},[ ])
+ 
   return (
     <div onClick={()=>handelNavigaion(info.title.split(' ').join("-"))}  className="   flex flex-col  relative border-2 rounded-md  shadow-gray-500 duration-300 mt-5   card cursor-grab active:cursor-grabbing">
                   <p
@@ -20,11 +28,11 @@ navigation(`/product/${info}`)
                     {info.availabilityStatus}
                   </p>
 
-                  <div className=" h-[9rem] ">
+                  <div className={`h-[9rem] flex justify-center  `}>
                     <img
-                      src={info.thumbnail}
+                      src={ skelotenimg ||  info.thumbnail}
                       alt=""
-                      className=" h-full w-full duration-300"
+                      className={`  ${skelotenimg?"w-1/3 h-1/3 mt-10 ":"h-full w-full"}   duration-300`}
                     />
                   </div>
                   <div className="flex flex-col md:gap-2 px-[1px] md:px-5 py-2   ">

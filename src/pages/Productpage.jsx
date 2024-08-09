@@ -10,6 +10,8 @@ import { titleapi } from "../store/title.id_slice";
 
 
 const Productpage = () => {
+  const [skelotenimg,setskelotionimg]=useState(true)
+
   const param = useParams().id;
   const dispatch = useDispatch();
 const [showreview,setshowreview]=useState(false)
@@ -22,6 +24,10 @@ const allstate=useSelector((state)=>state.titles)
   useEffect(() => {
         
     dispatch(titleapi())
+
+    setTimeout(() => {
+      setskelotionimg(false)
+    }, 1000);
           
     
  
@@ -39,6 +45,9 @@ useEffect(()=>{
   }
   apihandel()
 },[param,allstate])
+
+
+
 if(state.isLoading){
   return(
    <Loder />
@@ -55,13 +64,13 @@ if(state.isLoading){
                 className="border-2  p-1 rounded-full w-[50px]   my-3 cursor-pointer"
                 onClick={() => setmainimg(index)}
               >
-                <img src={info} alt=""  className=" "/>
+                <img src={ info} alt=""  className=" "/>
               </div>
             );
           })}
         </div><div>
-        <div className=" shadow-gray-400 shadow-sm  relative md:w-[350px]">
-      <img src={images && images[mainimg]} alt="" className="   md:h-[350px] imgfil" /> 
+        <div className={` shadow-gray-400 shadow-sm  relative  w-[350px] ${skelotenimg?"skel":""}  `}>
+      <img src={ images && images[mainimg] } alt="" className={` w-full md:h-[350px] `} /> 
       <i className="fa-regular fa-heart absolute top-3 right-3 text-lg"></i>
 
 

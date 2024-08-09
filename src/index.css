@@ -102,3 +102,33 @@ backdrop-filter: blur( 10.5px );
 /* -webkit-backdrop-filter: blur( 7.5px ); */
 
 }
+
+.skel{
+   overflow: hidden;
+    position: relative;
+    background: rgb(80, 79, 79);
+}
+.skel::before{
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 170%;
+    height: 10%;
+    background: rgba(192, 179, 179, 0.671);
+    box-shadow: 2px 1px 10px rgb(0, 204, 255);
+    rotate: 30deg;
+    animation: loder 1s infinite linear;
+}
+
+@keyframes loder {
+ from{
+    top:100%;
+    left: -50%;
+ }
+ to{
+   
+    top: -30%;
+    left: 0;
+ }
+}
