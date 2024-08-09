@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
 import {Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,22 @@ const SaleBanner = () => {
         
 
     ])
+
+    const sliderRef = useRef(null);
+    const sliderRef2=useRef(null)
+  
+    const handlePrev = useCallback(() => {
+      if (!sliderRef.current) return;
+      sliderRef.current.swiper.slidePrev();
+      sliderRef2.current.swiper.slidePrev();
+    }, []);
+  
+    const handleNext = useCallback(() => {
+      if (!sliderRef.current) return;
+      sliderRef.current.swiper.slideNext();
+      sliderRef2.current.swiper.slideNext();
+    }, []);
+
   return (
     <div className='  md:px-[1rem] lg:px-[1rem]  '>
 
@@ -27,6 +43,7 @@ spaceBetween={0}
       }}
    loop={true}
    grabCursor={true}
+   ref={sliderRef}
    modules={[Autoplay]}
     className="mySwiper">
     { img&& img.map((data,index)=>{return <SwiperSlide key={index}> <div className=''><img src={data} alt=""  className='   h-[8rem] md:h-full w-full'/> </div> </SwiperSlide>})}
@@ -34,10 +51,10 @@ spaceBetween={0}
        
       </Swiper>
 
-   <div className='hidden lg:block absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-[#ffffff] p-2 text-[#fa1e1e]'>
+   <div className='hidden lg:block absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-[#ffffff] p-2 text-[#fa1e1e]' onClick={handlePrev}>
    <i className="fa-solid fa-caret-left"></i>
    </div>
-<div className={` hidden lg:block  absolute right-0 top-1/2 z-10 -translate-y-1/2 bg-[#ffffff] p-2 text-[#fa1e1e]`}>
+<div className={` hidden lg:block  absolute right-0 top-1/2 z-10 -translate-y-1/2 bg-[#ffffff] p-2 text-[#fa1e1e]`} onClick={handleNext}>
 <i className="fa-solid fa-caret-right"></i>
 </div>
     </div>
