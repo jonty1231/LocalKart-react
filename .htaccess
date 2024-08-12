@@ -1,26 +1,19 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-  
-    # Redirect all requests to index.html except those for existing files or directories
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^.*$ /index.html [L,QSA]
-  </IfModule>
-  
-  # Enable GZIP compression (optional)
-  <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
-  </IfModule>
-  
-  # Caching of static files (optional)
-  <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-  </IfModule>
 
-  
+    # That was ONLY to protect you from 500 errors
+    
+    # if your server did not have mod_rewrite enabled
+    
+    RewriteEngine On
+    
+    # RewriteBase /
+    
+    # NOT needed unless you're using mod_alias to redirect
+    
+    RewriteCond %{REQUEST_URI} !/public
+    
+    RewriteRule ^(.*)$ public/$1 [L]
+    
+    # Direct all requests to /public folder
+    
+    </IfModule>
