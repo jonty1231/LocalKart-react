@@ -108,13 +108,18 @@ toast.error("Enter data")
       </div>
       <div className=" md:hidden  ">
         <label
-          htmlFor="navsearch"
+          htmlFor="navsearch2"
           className="bg-[#e0e0e0b2]  p-1 rounded-md gap-1 items-center block  w-[95%]  m-auto"
         >
           <i className="fa-solid fa-magnifying-glass text-lg text-gray-400"></i>
           <input
-            type="search"
-            id="navsearch"
+                type="text"
+                
+                name="serach"
+                value={serachItem}
+                onChange={(e)=>setserachItem(e.target.value)}
+                onKeyDown={(e)=>search_handel(e)}
+            id="navsearch2"
             placeholder="Search for Products,brands and More"
             className="bg-transparent   focus:outline-none  w-5/6"
           />
