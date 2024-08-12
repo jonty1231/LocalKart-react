@@ -1,8 +1,19 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
+# Disable directory listing
+Options -Indexes
+# Enable the rewrite engine
+RewriteEngine On
+# Sets the base URL for rewrites
+RewriteBase /
+# Access to domain root should serve dist folder
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /dist/$1 [L]
+# If URL doesn't match any static assets it should serve dist folder
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/api/*
+RewriteRule . /dist/$1 [L]
+# If URL contains api it should serve app.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} /api/*
+RewriteRule .* app.php [QSA,L]
