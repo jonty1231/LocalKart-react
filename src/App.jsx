@@ -10,6 +10,7 @@ import SallerPage from "./pages/SallerPage";
 import { ToastContainer} from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Searchpage from "./pages/Searchpage";
+import Categorypage from "./pages/Categorypage";
 function App() {
 
   return (
@@ -25,6 +26,7 @@ function App() {
        <Route path="/cart" element={<Cart />}  />
        <Route path="/saller" element={<SallerPage />} />
        <Route path="/:search" element={<Searchpage />} />
+       <Route path="/categories/:cato" element={<Categorypage />} />
   </Route>
 
 <Route  path="/login"  element={<Login />}/>

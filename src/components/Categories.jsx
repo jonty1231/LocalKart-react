@@ -5,10 +5,12 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { useNavigate } from "react-router-dom";
 
 
 
 const Categories = () => {
+  const navigation=useNavigate()
 const catogriesdata=[
   
 {categories:"FRAGRANCES",img:"https://pebblely.com/ideas/perfume/use-water.jpg"},
@@ -23,6 +25,8 @@ const catogriesdata=[
 {categories:"TOPS",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCT-Z-yFIpHRO37UKJPmWq1539xy3T7mzmA&s"},]
 
   return (
+
+
    <div className="flex justify-between mt-28 md:mt-14 pt-5 gap-3  md:mx-4 my-3 rounded-md lg:gap-16 px-8 bg-[#ece9e9] ">
 <Swiper
   slidesPerView={5}
@@ -55,7 +59,7 @@ const catogriesdata=[
 >
 {catogriesdata.map((info,index)=>{
   return(<SwiperSlide key={index}> 
-    <div key={index} className="   h-[6rem] md:h-[7rem]">
+    <div key={index} className="   h-[6rem] md:h-[7rem]" onClick={()=>navigation(`/categories/${info.categories.toLocaleLowerCase()}`)}>
 <img src={info.img} alt=""  className=" lg:w-full h-2/5 md:h-3/5 rounded-full "/>
 <p className=" mt-3 text-center lg:font2 text-[0.5rem] md:text-[0.8rem]">{info.categories}</p>
     </div>

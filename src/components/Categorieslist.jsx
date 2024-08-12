@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { categoriesproductapi } from "../store/productcategories";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "./Card";
 
-const Categorieslist = ({ data ,lg=" lg:grid-cols-5"}) => {
+const Categorieslist = ({ data ,lg=" lg:grid-cols-5",cat}) => {
+const navigation=useNavigate()
+
   const dispatch = useDispatch();
   const state = useSelector((state) => state.productcatog);
   useEffect(() => {
@@ -20,7 +22,7 @@ const Categorieslist = ({ data ,lg=" lg:grid-cols-5"}) => {
           <p className="font-extrabold text-2xl">
             BEST {data.toUpperCase()}
           </p>
-          <p className="text-blue-600 cursor-pointer">View all 
+          <p className="text-blue-600 cursor-pointer" onClick={()=>navigation(`/categories/${cat}`)}>View all 
                </p>
         </div>
         <div className={`   grid  grid-cols-2 md:grid-cols-2 ${lg} gap-2 md:gap-7`}>

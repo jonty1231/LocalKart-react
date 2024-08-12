@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
+import { productapi } from "../store/Product_slice";
 
 
 const Header = () => {
 const [showNav,setshowNav]=useState(false)
-const [serachItem,setserachItem] = useState()
-const navigate=useNavigate()
-const search_handel=(e)=>{
 
- console.log()
+const [serachItem,setserachItem] = useState(undefined)
+const navigate=useNavigate()
+   const dispatch=useDispatch()
+   const state=useSelector(state=>state.titles)
+
+
+const search_handel=(e)=>{
   if(e.key=="Enter"){
     if(serachItem){
       setserachItem("")
@@ -18,10 +24,27 @@ const search_handel=(e)=>{
 
     }
     else{
-toast.error("Enter data")
+    toast.error("enter valid data")
+
+     
     }
   }
   
+}
+useEffect(()=>{
+  dispatch(productapi())
+
+ 
+},[ ])
+
+
+const handelNavigaion=(info)=>{
+
+navigate(`/product/${info}`)
+
+setserachItem("")
+
+
 }
 
   return (<div>
@@ -37,6 +60,18 @@ toast.error("Enter data")
             className=""
           />
         </Link>
+       {serachItem && <div className="hidden md:flex absolute top-12 left-[25%] bg-white rounded-sm   flex-col  max-h-[70vh]  overflow-auto w-1/3">
+        { state.data.products && state.data.products.filter((info)=>{
+          const searchitm=serachItem.toLowerCase()
+          const fullnamme=info.title.toLowerCase()
+return  serachItem && fullnamme.startsWith(searchitm)
+         }).map((item,index)=>{return(
+          <div key={index} className="m-2 cursor-pointer border-b-[1px] border-[#b1abab54]" onClick={()=>handelNavigaion(item.title.split(' ').join("-"))}>
+            {item.title}
+          </div>
+        )}) }
+       </div>}
+      
         <label
           htmlFor="navsearch"
           className="bg-[#e0e0e0] w-3/6 p-1 rounded-md gap-1 items-center hidden md:flex"
@@ -54,7 +89,7 @@ toast.error("Enter data")
             
           />
         </label>
-
+      
         <div className="flex gap-2 md:gap-5 items-center text-gray-900">
           <i className="fa-solid fa-mobile-screen md:hidden"></i>
           <div className="flex h-full group hovernavparrent items-center gap-1 hover:bg-blue-700 hover:text-white text-md relative rounded-lg p-2 duration-200">
@@ -106,7 +141,18 @@ toast.error("Enter data")
           </div>
         </div>
       </div>
-      <div className=" md:hidden  ">
+      <div className=" md:hidden  relative ">
+      {serachItem && <div className="absolute top-[105%] left-[10%] bg-white max-h-[70vh]  overflow-auto  rounded-sm  flex flex-col  ">
+        { state.data.products && state.data.products.filter((info)=>{
+          const searchitm=serachItem.toLowerCase()
+          const fullnamme=info.title.toLowerCase()
+return  serachItem && fullnamme.startsWith(searchitm)
+         }).map((item,index)=>{return(
+          <div key={index} className="m-2 cursor-pointer border-b-[2px] border-[#808080d0]" onClick={()=>handelNavigaion(item.title.split(' ').join("-"))}>
+            {item.title}
+          </div>
+        )}) }
+       </div>}
         <label
           htmlFor="navsearch2"
           className="bg-[#e0e0e0b2]  p-1 rounded-md gap-1 items-center block  w-[95%]  m-auto"
@@ -117,13 +163,14 @@ toast.error("Enter data")
                 
                 name="serach"
                 value={serachItem}
-                onChange={(e)=>setserachItem(e.target.value)}
+           onChange={(e)=>setserachItem(e.target.value)}
                 onKeyDown={(e)=>search_handel(e)}
             id="navsearch2"
             placeholder="Search for Products,brands and More"
             className="bg-transparent   focus:outline-none  w-5/6"
           />
         </label>
+       
       </div>
       <Nav_screen   classs={showNav} classs2={setshowNav}/>
     </div>
