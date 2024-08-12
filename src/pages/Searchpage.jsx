@@ -34,7 +34,7 @@ if(state.data.limit==0){
     <p>Items</p>
     <p>{state.data.limit}</p>
    </div>
-   <div className='grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-10'>
+   <div className='grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-10'>
   {state.data.products  && state.data.products.map((info,index)=>{
   return  <Card  info={info} key={index}/>
 })}
