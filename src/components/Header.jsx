@@ -1,10 +1,28 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import Footer from "./Footer";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
+import { toast } from "react-toastify";
 
 
 const Header = () => {
 const [showNav,setshowNav]=useState(false)
+const [serachItem,setserachItem] = useState()
+const navigate=useNavigate()
+const search_handel=(e)=>{
+
+ console.log()
+  if(e.key=="Enter"){
+    if(serachItem){
+      setserachItem("")
+    navigate(`/${serachItem}`)
+
+    }
+    else{
+toast.error("Enter data")
+    }
+  }
+  
+}
 
   return (<div>
     <div className="shadow-md py-1 fixed  w-full top-0 z-50 bg-white  ">
@@ -27,8 +45,13 @@ const [showNav,setshowNav]=useState(false)
           <input
             type="text"
             id="navsearch"
+            name="serach"
+            value={serachItem}
+            onChange={(e)=>setserachItem(e.target.value)}
+            onKeyDown={(e)=>search_handel(e)}
             placeholder="Search for Products,brands and More"
             className="bg-transparent w-5/6  focus:outline-none "
+            
           />
         </label>
 

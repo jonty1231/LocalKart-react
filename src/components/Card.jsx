@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { recentitems } from '../store/Localstoragedata'
 
-const Card = ({info,}) => {
+const Card = ({info}) => {
 const [skelotenimg,setseloctionimg]=useState("./loder.png")
 
   const navigation=useNavigate()

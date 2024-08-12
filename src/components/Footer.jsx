@@ -15,7 +15,7 @@ const newdata=[{name:"ABOUT",info:["Contact Us","About Us","Careers","Localkart 
                     <div key = {index}>
                 <p className='text-sm my-3 text-gray-600'> {elm.name}</p>
                 <div>
-                 {elm.info.map((newelm)=> <p className='text-sm font-bold hover:underline cursor-pointer '> {newelm}</p>)} 
+                 {elm.info.map((newelm,index)=> <p  key={index} className='text-sm font-bold hover:underline cursor-pointer '> {newelm}</p>)} 
                 </div>
                </div>
                   )
