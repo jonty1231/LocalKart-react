@@ -36,7 +36,7 @@ if(loder){
     <p>Items</p>
     <p>{data && data.limit}</p>
    </div>
-   <div className='grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-10'>
+   <div className='grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-10'>
   {data  && data.products.map((info,index)=>{
   return  <Card  info={info} key={index}/>
 })}
